@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="appsettings.Development.json" />
+    <None Remove="appsettings.json" />
+    <None Remove="Scripts\01_DbObjects\01_Shemas\20220528_2100_Seminars_Schema.sql" />
+    <None Remove="Scripts\01_DbObjects\02_Tables\00000000-0200-AspNetAuth.sql" />
+    <None Remove="Scripts\01_DbObjects\02_Tables\20220528_2100_Seminar.sql" />
+    <None Remove="Scripts\01_DbObjects\02_Tables\20220528_2200_Attendees.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="appsettings.Development.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\01_DbObjects\01_Shemas\20220528_2100_Seminars_Schema.sql" />
+    <EmbeddedResource Include="Scripts\01_DbObjects\02_Tables\00000000-0200-AspNetAuth.sql" />
+    <EmbeddedResource Include="Scripts\01_DbObjects\02_Tables\20220528_2200_Attendees.sql" />
+    <EmbeddedResource Include="Scripts\01_DbObjects\02_Tables\20220528_2100_Seminar.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommandLineParser" Version="2.9.1" />
+    <PackageReference Include="dbup-sqlserver" Version="4.6.0" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="4.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+  </ItemGroup>
+
+</Project>
