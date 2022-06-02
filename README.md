@@ -23,6 +23,7 @@ Important principles to keep in mind.
 
  Examples:
 |Route|Action|Description|
+|-----|------|-----------|
 |api/seminars| GET |Listing all seminars|
 |api/seminars/{id}| GET |Listing a specified seminar based on id|
 |api/seminars| POST |Create a new Seminar|
