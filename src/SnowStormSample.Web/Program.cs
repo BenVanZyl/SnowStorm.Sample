@@ -16,6 +16,10 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<AuthDbContext>();
 builder.Services.AddRazorPages();
 
+//swagger
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 //snowstorm
 builder.Services.AddSnowStorm(typeof(Program).Assembly, new MappingProfiles(), connectionString);
 
@@ -26,6 +30,9 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
+    
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 else
 {
@@ -43,6 +50,12 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapRazorPages();
+    endpoints.MapControllers();
+});
 
 app.Run();
 
